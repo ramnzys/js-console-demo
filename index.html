@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=100%, initial-scale=1.0">
+    <title>Video Javascript console demo</title>
+</head>
+<body>
+    <h1>Este es un demo</h1>
+    <pre>
+    <code id="code-message">
+        console.log("Hellos... this a message.");
+    </code>
+    </pre>
+    <button onclick="executeCode('code-message');">Run</button>
+</body>
+<script>
+    function executeCode(codeId) {
+        let codeElement = document.getElementById(codeId);
+        code = codeElement.getInnerHTML();
+        eval(code);
+    }
+</script>
+</html>
