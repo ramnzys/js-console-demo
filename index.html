@@ -25,10 +25,13 @@
     <h1>Javascript console commands demo</h1>
 
     <div class="codeSegment">
-        <button onclick="executeCode(event);">Run</button> <span>Simple .log command</span>
+        <button onclick="executeCode(event);">Run</button> <span>Simple commands</span>
         <pre>
             <code class="language-javascript" id="code-message">
 console.log("Hi there!...");
+console.info("Info message");
+console.warn("Warn message");
+console.error("Error message");
             </code>
         </pre>
     </div>
@@ -104,17 +107,27 @@ console.timeEnd("process");
     </div>
 
     <div class="codeSegment">
-        <button onclick="executeCode(event);">Run</button> <span>Group logging with .group command</span>
+        <button onclick="executeCode(event);">Run</button> <span>Group logging with .group and .groupCollapsed command</span>
         <pre>
             <code class="language-javascript" id="code-message">
 for(i=1;i<=3;i++) {
     console.count("i loop");
-    console.group("J counter logs");
+    console.group("J group logs");
     for(j=1;j<=3;j++) {
         console.count("==> j loop");
     }
-    console.groupEnd("J counter logs");
+    console.groupEnd("J group logs");
 }
+
+for(i=1;i<=3;i++) {
+    console.count("i loop");
+    console.groupCollapsed("collapsed group");
+    for(j=1;j<=3;j++) {
+        console.count("==> j loop");
+    }
+    console.groupEnd("collapsed group");
+}
+
             </code>
         </pre>
     </div>
