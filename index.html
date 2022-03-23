@@ -7,37 +7,126 @@
     <link rel="stylesheet" href="highlight-theme.css">
     <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.0/highlight.min.js"></script>
     <title>Video Javascript console demo</title>
+    <style>
+        body {
+            padding: 20px;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+        }
+        button {
+            padding: 5px 20px 5px 20px;
+        }
+        pre {
+            margin-top: -10px;
+            padding-top: 0px;
+        }
+    </style>
 </head>
 <body onload="hlCodeBlocks();">
-    <h1>Este es un demo</h1>
-    <div style="display: flex;">
-        <div style="width: 80%;">
-            <pre>
-                <code class="language-javascript" id="code-message">
-console.log("Hi there!... this a message.");
-                </code>
-            </pre>
-        </div>
-        <div style="width: 20%; padding-left: 1em; padding-top: 2em;">
-            <button onclick="executeCode(event);">Run</button>
-        </div>
+    <h1>Javascript console commands demo</h1>
+
+    <div class="codeSegment">
+        <button onclick="executeCode(event);">Run</button> <span>Simple .log command</span>
+        <pre>
+            <code class="language-javascript" id="code-message">
+console.log("Hi there!...");
+            </code>
+        </pre>
+    </div>
+
+    <div class="codeSegment">
+        <button onclick="executeCode(event);">Run</button> <span>Default .count counter</span>
+        <pre>
+            <code class="language-javascript" id="code-message">
+for(i=1;i<=5;i++) {
+    console.count();
+}
+            </code>
+        </pre>
+    </div>
+
+    <div class="codeSegment">
+        <button onclick="executeCode(event);">Run</button> <span>Specific .count counter</span>
+        <pre>
+            <code class="language-javascript" id="code-message">
+for(i=1;i<=3;i++) {
+    console.count("i loop");
+    for(j=1;j<=3;j++) {
+        console.count("==> j loop");
+    }
+}
+            </code>
+        </pre>
     </div>
 
 
-    <div style="display: flex;">
-        <div style="width: 80%;">
-            <pre>
-                <code class="language-javascript" id="code-message">
-console.log("Otro código.");
-alert("hola");
-                </code>
-            </pre>
-        </div>
-        <div style="width: 20%; padding-left: 1em; padding-top: 2em;">
-            <button onclick="executeCode(event);">Run</button>
-        </div>
+    <div class="codeSegment">
+        <button onclick="executeCode(event);">Run</button> <span>3 ways to display a variable</span>
+        <pre>
+            <code class="language-javascript" id="code-message">
+let demo = {
+    id:1,
+    name: "Ramón Zayas",
+    created_at : new Date()
+}
+
+console.log(demo);
+
+console.log({demo});
+
+console.table(demo);
+            </code>
+        </pre>
     </div>
 
+
+    <div class="codeSegment">
+        <button onclick="executeCode(event);">Run</button> <span>Timing execution of code with .time</span>
+        <pre>
+            <code class="language-javascript" id="code-message">
+function wait(ms){
+    var start = new Date().getTime();
+    var end = start;
+    while(end < start + ms) {
+        end = new Date().getTime();
+    }
+}
+
+console.log("Start long running process...")
+console.time("process");
+wait(3000);
+console.log("Log info about the timer...")
+console.timeLog("process");
+wait(3000);
+console.log("End the timer...")
+console.timeEnd("process");
+            </code>
+        </pre>
+    </div>
+
+    <div class="codeSegment">
+        <button onclick="executeCode(event);">Run</button> <span>Group logging with .group command</span>
+        <pre>
+            <code class="language-javascript" id="code-message">
+for(i=1;i<=3;i++) {
+    console.count("i loop");
+    console.group("J counter logs");
+    for(j=1;j<=3;j++) {
+        console.count("==> j loop");
+    }
+    console.groupEnd("J counter logs");
+}
+            </code>
+        </pre>
+    </div>
+
+    <div class="codeSegment">
+        <button onclick="executeCode(event);">Run</button> <span>CSS styles to log messages</span>
+        <pre>
+            <code class="language-javascript" id="code-message">
+console.log("%c Critical Error", "padding: 1em; font-size:x-large; font-weight:bold; background:red; color:white;")
+            </code>
+        </pre>
+    </div>
 
 </body>
 <script>
@@ -46,8 +135,8 @@ alert("hola");
     }
 
     function executeCode(event) {
-        let codeElement = event.target.parentElement.previousElementSibling;
-        code = codeElement.textContent;
+        let code = event.target.parentElement.querySelector("code").textContent;
+        console.clear();
         eval(code);
     }
 </script>
