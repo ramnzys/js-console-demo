@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.0/styles/default.min.css">
     <link rel="stylesheet" href="highlight-theme.css">
     <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.0/highlight.min.js"></script>
-    <title>Video Javascript console demo</title>
+    <title>Demo para video de Javascript console</title>
     <style>
         body {
             padding: 20px;
@@ -22,22 +22,22 @@
     </style>
 </head>
 <body onload="hlCodeBlocks();">
-    <h1>Javascript console commands demo</h1>
+    <h1>Javascript console demo</h1>
 
     <div class="codeSegment">
         <button onclick="executeCode(event);">Run</button> <span>Simple commands</span>
         <pre>
             <code class="language-javascript" id="code-message">
-console.log("Hi there!...");
-console.info("Info message");
-console.warn("Warn message");
-console.error("Error message");
+console.log("¡Hola!...");
+console.info("Mensaje vía info");
+console.warn("Mensaje vía warn");
+console.error("Mensaje vía error");
             </code>
         </pre>
     </div>
 
     <div class="codeSegment">
-        <button onclick="executeCode(event);">Run</button> <span>Default .count counter</span>
+        <button onclick="executeCode(event);">Run</button> <span>Contador .count general</span>
         <pre>
             <code class="language-javascript" id="code-message">
 for(i=1;i<=5;i++) {
@@ -48,13 +48,13 @@ for(i=1;i<=5;i++) {
     </div>
 
     <div class="codeSegment">
-        <button onclick="executeCode(event);">Run</button> <span>Specific .count counter</span>
+        <button onclick="executeCode(event);">Run</button> <span>Contador .count con identificador</span>
         <pre>
             <code class="language-javascript" id="code-message">
 for(i=1;i<=3;i++) {
-    console.count("i loop");
+    console.count("Contador i");
     for(j=1;j<=3;j++) {
-        console.count("==> j loop");
+        console.count("==> Contador j");
     }
 }
             </code>
@@ -63,7 +63,7 @@ for(i=1;i<=3;i++) {
 
 
     <div class="codeSegment">
-        <button onclick="executeCode(event);">Run</button> <span>3 ways to display a variable</span>
+        <button onclick="executeCode(event);">Run</button> <span>Tres formas de mostrar una variable</span>
         <pre>
             <code class="language-javascript" id="code-message">
 let demo = {
@@ -83,7 +83,7 @@ console.table(demo);
 
 
     <div class="codeSegment">
-        <button onclick="executeCode(event);">Run</button> <span>Timing execution of code with .time</span>
+        <button onclick="executeCode(event);">Run</button> <span>Obteniendo el tiempo de ejecución con .time</span>
         <pre>
             <code class="language-javascript" id="code-message">
 function wait(ms){
@@ -94,40 +94,39 @@ function wait(ms){
     }
 }
 
-console.log("Start long running process...")
+console.log("Inicio de un proceso largo...")
 console.time("process");
 wait(3000);
-console.log("Log info about the timer...")
+console.log("Avance de un proceso largo...")
 console.timeLog("process");
 wait(3000);
-console.log("End the timer...")
+console.log("Fin del proceso...")
 console.timeEnd("process");
             </code>
         </pre>
     </div>
 
     <div class="codeSegment">
-        <button onclick="executeCode(event);">Run</button> <span>Group logging with .group and .groupCollapsed command</span>
+        <button onclick="executeCode(event);">Run</button> <span>Mensajes agrupados con comando .group y .groupCollapsed </span>
         <pre>
             <code class="language-javascript" id="code-message">
 for(i=1;i<=3;i++) {
-    console.count("i loop");
-    console.group("J group logs");
+    console.count("Contador i");
+    console.group("Mensaje agrupados");
     for(j=1;j<=3;j++) {
-        console.count("==> j loop");
+        console.count("==> Contador j");
     }
-    console.groupEnd("J group logs");
+    console.groupEnd("Mensajes agrupados");
 }
 
 for(i=1;i<=3;i++) {
-    console.count("i loop");
-    console.groupCollapsed("collapsed group");
+    console.count("Contador i");
+    console.groupCollapsed("Grupo colapsado");
     for(j=1;j<=3;j++) {
-        console.count("==> j loop");
+        console.count("==> Contador j");
     }
-    console.groupEnd("collapsed group");
+    console.groupEnd("Grupo colapsado");
 }
-
             </code>
         </pre>
     </div>
@@ -136,7 +135,7 @@ for(i=1;i<=3;i++) {
         <button onclick="executeCode(event);">Run</button> <span>CSS styles to log messages</span>
         <pre>
             <code class="language-javascript" id="code-message">
-console.log("%c Critical Error", "padding: 1em; font-size:x-large; font-weight:bold; background:red; color:white;")
+console.log("%c Error crítico", "padding: 1em; font-size:x-large; font-weight:bold; background:red; color:white;")
             </code>
         </pre>
     </div>
